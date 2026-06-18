@@ -23,3 +23,14 @@
 1. **Depression Level Quiz:** Users can answer a series of questions regarding their mental state. Each answer selection has specific point values that will be automatically calculated at the end of the quiz to estimate the user's depression level.
 2. **Consultation (Prototype):** This feature is intended to guide users who need further assistance. *Note: This feature is currently not connected to any backend or live messaging system as this is still a simple static website.*
 3. **Doctor Recommendations:** This section provides information and a list of recommended psychiatrists or psychologists that users can reach out to for professional help.
+
+## Tampilan Website / Preview
+
+### 🏠 Halaman Utama (Home)
+![Home Screen](home.png)
+
+### 📝 Halaman Kuis (Quiz)
+![Quiz Screen](quiz.png)
+
+### 🩺 Halaman Konsultasi & Rekomendasi Dokter
+![Consultation Screen](konsul.png)

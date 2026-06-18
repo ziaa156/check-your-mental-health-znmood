@@ -1,0 +1,852 @@
+/* ==========================================================================
+   ZN'mood Global Styles & Design System
+   ========================================================================== */
+
+/* Typography & Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', 'Open Sans', sans-serif;
+}
+
+:root {
+    --text-color: #ffffff;
+    --text-muted: #e0e0e0;
+    --bg-color: #0c0e17;
+    --primary-color: #8526f9;
+    --secondary-color: #7BD3EA;
+    --gradient-start: #8e2de2;
+    --gradient-end: #4a00e0;
+    --main-color: #333;
+    
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --card-border: rgba(255, 255, 255, 0.15);
+    --glass-blur: blur(20px);
+    
+    --h1-font: 3.5rem;
+    --h2-font: 2.2rem;
+    --p-font: 1rem;
+    --transition: all 0.3s ease;
+}
+
+body {
+    background-image: linear-gradient(rgba(12, 14, 23, 0.8), rgba(12, 14, 23, 0.8)), url('latar belakang.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Header / Navigation
+   ========================================================================== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(12, 14, 23, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.logo-img {
+    height: 35px;
+    margin-right: 10px;
+    object-fit: contain;
+}
+
+.logo span {
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    font-weight: 500;
+    color: var(--text-muted);
+    font-size: var(--p-font);
+    transition: var(--transition);
+    padding: 5px 0;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gradient-start), var(--secondary-color));
+    transition: var(--transition);
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.h-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.h-right a {
+    color: var(--text-muted);
+    font-size: 18px;
+    transition: var(--transition);
+}
+
+.h-right a:first-child {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.h-right a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Spacer for Fixed Header */
+main, section.home {
+    padding-top: 80px; /* Prevents content from going under the header */
+}
+
+/* ==========================================================================
+   Home Hero Section
+   ========================================================================== */
+section.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: calc(100vh - 60px);
+    text-align: center;
+    padding-top: 80px;
+}
+
+.home-content {
+    max-width: 800px;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--card-border);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin: 20px;
+}
+
+.home h1 {
+    font-size: var(--h1-font);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #fff, var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.home p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: #ffffff;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(142, 45, 226, 0.4);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(142, 45, 226, 0.6);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--card-border);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================================================
+   Content Layouts (Glass Cards)
+   ========================================================================== */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px 60px;
+}
+
+.contact {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--card-border);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    color: var(--text-color);
+}
+
+.contact img {
+    width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.contact h1, .contact h2 {
+    font-size: var(--h2-font);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.contact h4 {
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+.contact p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: var(--text-muted);
+}
+
+/* Forms & Inputs */
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: -5px;
+}
+
+.contact input, 
+.contact textarea {
+    padding: 12px 18px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.contact input:focus, 
+.contact textarea:focus {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 8px rgba(123, 211, 234, 0.3);
+}
+
+.contact textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contact button[type="submit"] {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: #fff;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: var(--transition);
+}
+
+.contact button[type="submit"]:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Doctor Directory Page
+   ========================================================================== */
+.card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    max-width: 600px;
+    margin: 15px auto;
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+    border: 2px solid var(--secondary-color);
+    flex-shrink: 0;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.doctor {
+    flex: 1;
+}
+
+.doctor h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.doctor p {
+    margin: 3px 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.rating {
+    display: flex;
+    color: #ffd700;
+    margin-top: 5px;
+}
+
+.star {
+    font-size: 16px;
+}
+
+.card .btn {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    border-radius: 20px;
+    margin-left: 15px;
+}
+
+/* ==========================================================================
+   Questionnaire Section (PHQ-9)
+   ========================================================================== */
+.progress-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    height: 10px;
+    width: 100%;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, var(--gradient-start), var(--secondary-color));
+    height: 100%;
+    width: 0;
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out;
+}
+
+.question {
+    max-width: 700px;
+    width: 100%;
+    margin: 80px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.question h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.question input[type="radio"] {
+    margin-right: 12px;
+    accent-color: var(--secondary-color);
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.question label {
+    font-size: 1.05rem;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.question hr {
+    margin: 15px 0;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.question button {
+    display: block;
+    width: 100%;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    padding: 14px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: var(--transition);
+}
+
+.question button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Results & Score display
+   ========================================================================== */
+#result {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 20px 0;
+    white-space: pre-line;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.dokter {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 25px;
+}
+
+.dokter h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   Login Container / Page
+   ========================================================================== */
+.login-container {
+    max-width: 400px;
+    width: 100%;
+    margin: 80px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--card-border);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    text-align: center;
+}
+
+.login-form img {
+    width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.login-container h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.login-container p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-buttons button {
+    flex: 1;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.social-buttons button:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    transform: translateY(-2px);
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.line {
+    flex: 1;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.15);
+    margin: 0 15px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.login-container input:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 8px rgba(123, 211, 234, 0.3);
+}
+
+.continue-button {
+    width: 100%;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.continue-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.signup {
+    margin-top: 20px;
+    font-size: 0.85rem !important;
+}
+
+.signup a {
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.signup a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: rgba(12, 14, 23, 0.85);
+    backdrop-filter: blur(5px);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: auto;
+    width: 100%;
+}
+
+footer a {
+    color: var(--secondary-color);
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    nav li {
+        margin: 0 10px;
+    }
+    
+    .h-right {
+        display: none; /* Hide social icons on mobile to save space */
+    }
+    
+    section.home, main {
+        padding-top: 120px;
+    }
+    
+    .home h1 {
+        font-size: 2.2rem;
+    }
+    
+    .card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .doctor h2 {
+        text-align: center;
+    }
+    
+    .rating {
+        justify-content: center;
+    }
+    
+    .card .btn {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   Home Page Specific Styles (Original Index Tampilan Awal)
+   ========================================================================== */
+body.home-page {
+    background: #000 !important;
+    background-image: none !important;
+}
+
+body.home-page header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    background: transparent !important;
+    padding: 27px 8% !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    border-bottom: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+body.home-page .logo {
+    font-size: 33px !important;
+}
+
+body.home-page .navbar a {
+    color: var(--text-color) !important;
+    font-size: var(--p-font) !important;
+    font-weight: 500 !important;
+    margin: 15px 10px !important;
+}
+
+body.home-page nav a::after {
+    display: none !important;
+}
+
+body.home-page .navbar a:hover {
+    color: var(--secondary-color) !important;
+    text-decoration: none !important;
+}
+
+body.home-page .h-right a {
+    color: var(--text-color) !important;
+    font-size: 15px !important;
+    margin: 0 10px !important;
+}
+
+body.home-page .h-right a:hover {
+    color: var(--secondary-color) !important;
+}
+
+body.home-page section.home {
+    padding: 70px 8% 60px !important;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(12, 14, 23, 0.65), rgba(12, 14, 23, 0.65)), url('latar belakang.jpeg') !important;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+body.home-page .home-content {
+    max-width: none !important;
+    width: auto !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+}
+
+body.home-page .home h1 {
+    color: var(--text-color) !important;
+    font-size: var(--h1-font) !important; /* 6rem */
+    font-weight: 800 !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    margin-bottom: 0 !important;
+}
+
+body.home-page .home p {
+    color: pink !important;
+    font-size: var(--p-font) !important;
+    margin-top: 15px !important;
+    margin-bottom: 25px !important;
+}
+
+body.home-page .home a.btn {
+    display: inline-block !important;
+    padding: 8px 14px !important;
+    background-color: var(--main-color) !important; /* #333 */
+    color: black !important;
+    border-radius: 4px !important;
+    font-weight: normal !important;
+    font-size: var(--p-font) !important;
+    box-shadow: none !important;
+}
+
+body.home-page .home a.btn:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    opacity: 0.8 !important;
+}
+
+body.home-page footer {
+    text-align: center !important;
+    padding: 20px !important;
+    background: var(--main-color) !important; /* #333 */
+    color: #fff !important;
+    border-top: none !important;
+}
+
+@media (max-width: 768px) {
+    body.home-page header {
+        padding: 20px 5% !important;
+        flex-direction: column !important;
+    }
+    body.home-page section.home {
+        padding: 120px 5% 60px !important;
+    }
+}

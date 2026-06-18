@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check your mental health</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="logo2.png" alt="Logo" class="logo-img">
+            ZN<span>'mood</span>
+        </a>
+        <nav>
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="3.about.html">About Us</a></li>
+                <li><a href="5.dokter.html">Konsultasi</a></li>
+                <li><a href="4.contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="h-right">
+            <a href="">Follow list</a>
+            <a href=""><i class="ri-instagram-fill"></i></a>
+            <a href=""><i class="ri-twitter-fill"></i></a>
+            <a href=""><i class="ri-facebook-fill"></i></a>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact fade-in" id="fadeContent">
+            <img src="ZN_mood.png" alt="logo" />
+            <h2>Hasil Skor Anda</h2>
+            <div id="result"></div>
+            
+            <div class="dokter">
+                <h3>Ingat anda tidak sendirian! 😊 Klik di bawah ini untuk mendapatkan dukungan dan konsultasi lebih lanjut.</h3>
+                <a href="5.dokter.html" class="btn">Konsultasi</a>
+            </div> 
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ZN'mood. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Menghitung total skor
+        let totalScore = 0;
+        let questionCount = 9; // Ganti dengan jumlah total pertanyaan
+
+        for (let i = 1; i <= questionCount; i++) {
+            const score = localStorage.getItem(`score${i}`);
+            if (score) {
+                totalScore += Number(score); // Gunakan Number() untuk konversi
+            }
+        }
+
+        // Menentukan deskripsi berdasarkan total skor
+        let deskripsi;
+        if (totalScore === 0) {
+            deskripsi = `Tingkat 0:
+Anda berada di tingkat yang menunjukkan bahwa saat ini Anda tidak mengalami gejala depresi berdasarkan PHQ-9 (Patient Health Questionnaire-9). Ini adalah kabar baik! Namun, penting untuk diingat bahwa PHQ-9 hanya merupakan alat skrining dan bukan diagnosis medis. Ini tidak dapat menggantikan konsultasi dengan profesional kesehatan mental.
+
+Meskipun skor nol menunjukkan tidak adanya gejala depresi saat pengisian kuesioner, hal ini tidak menjamin bahwa Anda tidak akan menghadapi tantangan kesehatan mental di masa depan. Stres, kecemasan, dan masalah kesehatan mental lainnya masih mungkin terjadi.
+
+Tips Kesehatan Mental:
+1. Pola Hidup Sehat: Tidur cukup, makan bergizi, dan olahraga secara teratur.
+2. Kelola Stres: Coba yoga, meditasi, atau hobi yang Anda nikmati.
+3. Jaga Hubungan Sosial: Luangkan waktu dengan keluarga dan teman.
+4. Praktikkan Mindfulness: Perhatikan pikiran dan perasaan Anda tanpa menghakimi.
+5. Batasi Media Sosial: Kurangi waktu di media sosial untuk menjaga suasana hati.
+6. Tetapkan Batasan: Belajar berkata "tidak" saat merasa kewalahan.
+7. Cari Bantuan: Jangan ragu untuk mencari dukungan profesional jika diperlukan.`; 
+        } else if (totalScore <= 9) {
+            deskripsi = `Tingkat 1:
+Berdasarkan PHQ-9 (Patient Health Questionnaire-9) Anda memiliki kesehatan mental yang sangat baik. Anda dapat mengelola emosi, hubungan, dan tantangan sehari-hari dengan efektif. Jika menghadapi stres atau tekanan, Anda mampu menangani situasi tersebut dengan cara yang sehat. Untuk mempertahankan kondisi ini, penting untuk menjaga kebiasaan positif.
+
+Meskipun hasil PHQ-9 menunjukkan tidak ada gejala depresi signifikan, tetap perhatikan kesehatan mental Anda. Ini tidak berarti tanpa tantangan, seperti stres ringan. Ingat, PHQ-9 hanyalah alat skrining dan tidak menggantikan konsultasi profesional.
+
+Tips Kesehatan Mental:
+1. Perhatikan Pola Tidur: Tidur cukup (7-9 jam) untuk kesehatan mental.
+2. Makan Sehat: Nutrisi baik, hindari gula dan kafein berlebihan.
+3. Olahraga Teratur: Aktivitas fisik meningkatkan suasana hati dan mengurangi stres.
+4. Kelola Stres: Identifikasi pemicu stres dan gunakan teknik relaksasi.
+5. Jaga Hubungan Sosial: Interaksi dengan orang terdekat dan minta dukungan.
+6. Batasi Berita Negatif: Hindari informasi yang berdampak buruk.
+7. Cari Hobi Menyenangkan: Lakukan aktivitas yang Anda nikmati.`;
+        } else if (totalScore <= 18) {
+            deskripsi = `Tingkat 2:
+Berdasarkan PHQ-9 (Patient Health Questionnaire-9) Anda mungkin sedang mengalami tekanan emosional atau stres yang mulai memengaruhi keseharian Anda. Meskipun kondisi ini belum tergolong serius, penting untuk mulai mengenali penyebabnya dan mencari cara untuk menguranginya. Berbicaralah dengan orang terpercaya, praktikkan meditasi, atau carilah aktivitas yang membantu Anda rileks. Jika perasaan ini berlanjut, sangat disarankan untuk berkonsultasi dengan konselor atau psikolog.
+            
+Tips Kesehatan: 
+1. Luangkan Waktu untuk Diri Sendiri: Temukan aktivitas yang Anda nikmati untuk membantu meredakan stres.
+2. Cari Dukungan: Bicaralah dengan orang terpercaya untuk mengurangi beban emosional.
+3. Olahraga Teratur: Aktivitas fisik seperti jalan kaki atau bersepeda dapat meningkatkan suasana hati.
+4. Tidur Cukup: Usahakan tidur 7-9 jam per malam untuk kesehatan mental.
+5. Makan Sehat: Konsumsi makanan seimbang dan hindari gula serta kafein berlebihan.
+6. Manajemen Stres: Praktikkan meditasi, yoga, atau teknik pernapasan dalam.
+7. Kurangi Media Sosial: Batasi waktu di media sosial untuk mencegah perasaan negatif.`;
+        } else if (totalScore <= 27) {
+            deskripsi = `Tingkat 3:
+Dari hasil tes PHQ-9 (Patient Health Questionnaire-9), menunjukkan adanya gejala yang dapat mengarah pada masalah kesehatan mental. Anda mungkin kesulitan mengatasi stres atau emosi negatif. Penting untuk tidak mengabaikan kondisi ini dan segera mencari dukungan. Bicaralah dengan keluarga, teman, atau profesional seperti psikolog untuk mendapatkan penanganan yang sesuai.
+
+Tips Kesehatan: 
+1. Cari Bantuan Profesional: Konsultasikan dengan dokter atau psikolog untuk diagnosis dan penanganan yang tepat.
+2. Perawatan Diri: Luangkan waktu untuk aktivitas yang Anda nikmati.
+3. Dukungan Sosial: Berbagi perasaan dengan orang terpercaya dapat meringankan beban emosional.
+4. Tetapkan Batasan: Belajar untuk mengatakan tidak pada tanggung jawab yang berlebihan.
+5. Praktikkan Mindfulness: Luangkan waktu untuk meditasi atau latihan pernapasan.
+6. Hindari alkohol dan narkoba: Zat-zat ini dapat memperburuk gejala depresi.
+7. Berlatih self-compassion: Bersikaplah baik kepada diri sendiri dan hindari menghakimi diri sendiri yang keras.`;
+        } else {
+            deskripsi = "Skor di luar rentang yang ditentukan.";
+        }
+
+        document.getElementById('result').innerText = 
+            `Total Skor Anda: ${totalScore}\n\n` + 
+            deskripsi;
+
+        window.onload = () => {
+            const fadeContent = document.getElementById('fadeContent');
+            if (fadeContent) {
+                fadeContent.classList.add('visible');
+            }
+        };
+    </script>
+</body>
+</html>
